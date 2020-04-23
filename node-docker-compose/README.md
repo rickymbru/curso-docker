@@ -1,7 +1,6 @@
-<h3 align="center"> 
+<h1 align="center"> 
     NODE + MONGO + COMPOSE
-<h3>
-<br>
+<h1>
 
 ## Overview
 Basic Application with node, mongodb, docker compose and nginx.
@@ -15,5 +14,6 @@ Basic Application with node, mongodb, docker compose and nginx.
 ``` bash
 npm init -y
 npm i --save express@4.15.3 mongoose@4.11.1 node-restfull@0.2.6 body-parser@1.17.2 cors@2.8.3
+ docker-compose up -d
 ```
 

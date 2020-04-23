@@ -2,17 +2,35 @@ version: '3'
 services: 
     db: 
         image: mongo:3.4
+        ports: 
+            - 3001-3003:27017-27019
+        volumes: 
+            # - ./database/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+            - ./database/data:/data/db            
+        # environment: 
+        #     - MONGO_INITDB_DATABASE=mydb
+        #     - MONGO_INITDB_ROOT_USERNAME=dbuser
+        #     - MONGO_INITDB_ROOT_PASSWORD=password
     backend:
         image: node:8.1
         volumes: 
             - ./backend:/backend
         ports: 
             - 3000:3000
-        command: bash -c "cd /backend && npm install && node app"
+        command: >
+                bash -c "cd /backend 
+                && sleep 1
+                && npm install && node app"
+        depends_on: 
+            - db
+        env_file: .env
     frontend:
         image: nginx:1.13
         volumes: 
             - ./frontend:/usr/share/nginx/html
         ports: 
             - 80:80
-
+        depends_on: 
+            - backend
+    
+    

@@ -15,5 +15,8 @@
     "express": "^4.15.3",
     "mongoose": "^4.11.1",
     "node-restful": "^0.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
