@@ -19,6 +19,7 @@ Basic Application with POSTGRES, NGINX (Reverse Proxy), PYHTON (Workers and App)
  docker-compose exec db psql -U postgres -f 'scripts/check.sql'
  docker-compose exec db psql -U postgres -d email_sender -c 'select * from emails;'
  docker-compose up -d --scale worker=3
+ docker-compose logs -f -t
 ```
 
 

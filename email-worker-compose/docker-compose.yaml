@@ -55,6 +55,9 @@ services:
         depends_on: 
             - db
             - queue
+        environment: 
+            - DB_NAME=email_senderAAAA
+        # env_file: ./.env
     queue:
         image: redis:3.2
         networks: 
