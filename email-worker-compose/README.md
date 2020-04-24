@@ -12,12 +12,13 @@ Basic Application with POSTGRES, NGINX (Reverse Proxy), PYHTON (Workers and App)
 - **[python](https://www.python.org/)**
 - **[bottle](https://pypi.org/project/bottle/)**
 
-## Configurando o Postgres
+## Comandos utilizados
 ``` bash
  docker-compose up -d
  docker-compose exec db psql -U postgres -c '\l'  # Test listing databases
  docker-compose exec db psql -U postgres -f 'scripts/check.sql'
  docker-compose exec db psql -U postgres -d email_sender -c 'select * from emails;'
+ docker-compose up -d --scale worker=3
 ```
 
 
